@@ -1,0 +1,6 @@
+{
+  "status": "ok",
+  "candidates": [{"url": "https://blog.google/example-post/", "title": "예시 글", "published": "2026-01-01"}],
+  "items": [{"id": "s1", "url": "https://blog.google/example-post/", "published": "2026-01-01", "fetched_at": "2026-01-01", "file": "fixtures/partial-s1.md"}],
+  "error": "Anthropic: www.anthropic.com/news 를 열지 못해 확인하지 못했습니다"
+}

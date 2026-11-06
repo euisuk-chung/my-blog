@@ -1,0 +1,8 @@
+{
+  "type": "result",
+  "subtype": "success",
+  "is_error": false,
+  "num_turns": 9,
+  "result": "{\"status\": \"error\", \"candidates\": [], \"items\": [], \"error\": \"세 사이트의 소식 목록을 모두 열지 못해 확인하지 못했습니다\"}",
+  "permission_denials": []
+}

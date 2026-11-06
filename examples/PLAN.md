@@ -15,7 +15,7 @@
 | 조건 | 반영할 설정 · 파일 | graph 의 단계 |
 |---|---|---|
 | ① 매일 아침 저절로, 같은 날 두 번 올라가면 안 된다 | GitHub Actions 의 정해진 시각 실행(cron 식) · run ID · lock — `.github/workflows/` | graph 밖 |
-| ② 새 글은 웹서치로 찾고, 결과는 날마다 다르다 | 가져온 원문 · 주소 · 게시일 · 가져온 시각을 실행마다 `runs/<날짜>/` 에 남긴다 | collect |
+| ② 새 글은 웹서치로 찾고, 결과는 날마다 다르다 | 가져온 원문 · 주소 · 게시일 · 가져온 날짜를 실행마다 `runs/<날짜>/` 에 남긴다 | collect |
 | ③ 숫자 · 인용은 원문과 같아야 한다 | 원문 대조 검사 — 원문과 같은지까지, 사실 자체의 검증은 아니다 | check |
 | ④ 틀린 초안은 다시 쓰되 끝없이 쓰지 않는다 | `max_attempts` · `retry_prompt` · human queue — `graph.yaml` | check → write |
 | ⑤ 내가 확인한 글만 블로그에 나간다 | PR 승인, 합치면 GitHub Pages 가 `docs/` 를 올린다 | approve |

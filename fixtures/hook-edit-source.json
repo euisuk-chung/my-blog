@@ -1,0 +1,10 @@
+{
+  "cwd": ".",
+  "hook_event_name": "PreToolUse",
+  "tool_name": "Edit",
+  "tool_input": {
+    "file_path": "runs/2026-01-01/sources/s1.md",
+    "old_string": "available today",
+    "new_string": "available next week"
+  }
+}

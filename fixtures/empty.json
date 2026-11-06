@@ -1,0 +1,8 @@
+{
+  "type": "result",
+  "subtype": "success",
+  "is_error": false,
+  "num_turns": 6,
+  "result": "{\"status\": \"empty\", \"candidates\": [], \"items\": [], \"error\": \"\"}",
+  "permission_denials": []
+}
