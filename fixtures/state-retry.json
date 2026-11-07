@@ -1,0 +1,18 @@
+{
+  "graph": "examples/graph-retry.yaml",
+  "status": "running",
+  "step": "check",
+  "attempts": {
+    "write": 1
+  },
+  "reason": "",
+  "last": "",
+  "history": [
+    {
+      "step": "write",
+      "attempt": 1,
+      "result": "ok",
+      "why": ""
+    }
+  ]
+}

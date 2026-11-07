@@ -1,4 +1,5 @@
 state.json
-sources.json
+/sources.json
 draft.md
 human_queue/
+pr-body.md

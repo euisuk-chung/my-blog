@@ -1,0 +1,20 @@
+# 다시 쓰기 연습 graph — 작성 → 검사만 있는 graph
+# 시작 전에 fixtures/check/sources.json 을 sources.json 으로 복사한다
+# 승인 단계가 없으니 PR 은 열리지 않는다
+
+start: write
+max_attempts: 3              # ④ 첫 시도를 포함해 세 번 — 넘으면 human queue
+backoff_seconds: 2
+retry_prompt: "앞 결과가 거부된 이유: {reason}. 이 이유만 고치세요."
+
+steps:
+  write:
+    claude: prompts/write.md
+    args: ["--disallowedTools", "WebSearch,WebFetch,Bash"]
+    needs: [sources.json]
+    output: draft.md
+    next: check
+  check:
+    run: python steps/check.py draft.md sources.json
+    next: end
+    on_reject: write

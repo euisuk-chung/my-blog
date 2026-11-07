@@ -1,5 +1,5 @@
 # 프로젝트 1 graph — 매일 아침 AI 기업 소식 블로그
-# 이번 판은 수집 → 세기 → 작성까지 실행하고, 초안이 준비되면 멈춘다. 검사(check)와 승인(approve)은 아직 없다.
+# 수집 → 세기 → 작성 → 검사 → 승인. 승인 단계가 PR 을 열고 멈추면, 내가 PR 을 읽고 합친다.
 # ① 매일 아침 저절로 · 같은 날 두 번 X → graph 밖에서 GitHub Actions 가 runner 를 부른다
 
 start: collect
@@ -22,4 +22,11 @@ steps:
     args: ["--disallowedTools", "WebSearch,WebFetch,Bash"]
     needs: [sources.json]
     output: draft.md
-    next: end                # 초안 준비됨에서 멈춘다
+    next: check
+  check:                     # ③ 검사 다섯 — 거부하면 이유를 붙여 write 를 다시
+    run: python steps/check.py draft.md sources.json
+    next: approve
+    on_reject: write
+  approve:                   # ⑤ PR 을 열고 exit code 3 — 내가 합친 것만 게시된다
+    run: python steps/approve.py draft.md
+    next: end
